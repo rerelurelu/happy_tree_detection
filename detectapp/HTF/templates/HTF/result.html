@@ -1,0 +1,30 @@
+{% extends 'HTF/base.html' %}
+{% block title %}Happy Tree Friends判定結果{% endblock %}
+
+{% block content %}
+<div>
+    <h4 class="mt-4 mb-5 border-bottom">HTF判定結果</h4>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>ファイル名</td>
+                <td>{{ photoname }}</td>
+            </tr>
+            <tr>
+                <td><img class="preview-img" src={{ photo_data }}></img></td>
+            </tr>
+            <tr>
+                <td>判定ラベル</td>
+                <td>{{ predicted }}</td>
+            </tr>
+            <tr>
+                <td>判定確率</td>
+                <td>{{ percentage }} %</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{% url 'htf:index' %}" class="btn btn-primary">画像選択メニューに戻る</a>
+
+</div>
+{% endblock %}

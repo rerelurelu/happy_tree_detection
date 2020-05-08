@@ -1,0 +1,21 @@
+{% extends 'HTF/base.html' %}
+{% block title %}Happy Tree Friendsアプリメニュー{% endblock %}
+
+{% block content %}
+<div>
+  <h4 class="mt-4 mb-5 border-bottom">HTF判定アプリ</h4>
+  <p>画像ファイルを選択して判定ボタンを押してね！</p>
+  <form action="{% url 'htf:predict' %}" method="post" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+      <div class="custom-file">
+        {{ form.image }}
+        <label class="custom-file-label" for="customFile">
+          判定したい画像を選択してください。
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">判定する！</button>
+  </form>
+</div>
+{% endblock %}
